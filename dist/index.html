@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recipies</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+</head>
+
+<body>
+    
+    <div class="header">
+        <input type="text" id="ingredient-input" placeholder="Please Enter ingredient">
+        <button onclick =getRecipies()>Search!</button>
+    </div>
+
+    <div class="recipies"></div>
+
+    <script id="recipies-template"  type="text/x-handlebars-template">
+        {{#each recipies}}
+        <div class="recipe"> 
+            <p><a href={{href}}>{{title}}</a></p>
+            <img src={{thumbnail}} class="image" alt="Not Found" style="max-width:600px;width:100%">
+            <ul class="list">
+            {{#each ingredients}}
+                <li> {{this}}</li>
+            {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+    </script>
+
+    
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
